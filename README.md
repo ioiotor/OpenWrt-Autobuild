@@ -1,1 +1,1 @@
-# mir4-ss-autobuild
+小米路由器4 openwrt19.07.2-ss 自动编译固件
