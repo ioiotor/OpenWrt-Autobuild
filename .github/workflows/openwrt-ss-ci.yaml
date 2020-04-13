@@ -64,15 +64,18 @@ jobs:
 
 
       - name: Update feeds
+        working-directory: ./openwrt
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
 
       - name: rm kcptun
+        working-directory: ./openwrt
         run: |
           rm -rf ./feeds/packages/net/kcptun
 
       - name: Configuration Customization
+        working-directory: ./openwrt
         env:
           CONFIG_FILE: 'mir4_ss.config'
         run: |
@@ -81,11 +84,13 @@ jobs:
           cd openwrt && make defconfig
 
       - name: Download package source code
+        working-directory: ./openwrt
         run: |
           make download -j8
           find dl -size -1024c -exec ls -l {} \;
           find dl -size -1024c -exec rm -f {} \;
       - name: Compile firmware
+        working-directory: ./openwrt
         run: |
           echo -e "$(nproc) thread build."
           make -j$(nproc) V=s
@@ -93,4 +98,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: OpenWrt firmware
-          path: bin/targets
+          path: openwrt/bin
