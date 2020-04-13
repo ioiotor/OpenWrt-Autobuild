@@ -75,7 +75,6 @@ jobs:
           rm -rf ./feeds/packages/net/kcptun
 
       - name: Configuration Customization
-        working-directory: ./openwrt
         env:
           CONFIG_FILE: 'mir4_ss.config'
         run: |
