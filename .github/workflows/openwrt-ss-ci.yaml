@@ -11,8 +11,7 @@ name: OpenWrt-CI
 
 on:
   release:
-    #types: [published]
-    types: started
+    types: [published]
   push:
     branches: 
       - master
@@ -25,7 +24,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
       - name: Checkout
