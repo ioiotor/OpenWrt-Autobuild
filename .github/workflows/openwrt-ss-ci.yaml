@@ -12,7 +12,7 @@ name: OpenWrt-CI
 on:
   release:
     #types: [published]
-    types:started
+    types: started
   push:
     branches: 
       - master
