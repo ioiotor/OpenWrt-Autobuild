@@ -67,7 +67,8 @@ jobs:
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-
+          
+          
       - name: Configuration Customization
         env:
           CONFIG_FILE: 'rm2100.config'
