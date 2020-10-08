@@ -14,7 +14,7 @@ on:
     types: [published]
   push:
     branches: 
-      - master
+      - main
   #     ↑↑↑ 改成你的分支名, 一般是master
   # schedule:
   #   - cron: 0 20 * * *
@@ -27,7 +27,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@main
 
       - name: Initialization environment
         env:
@@ -59,7 +59,7 @@ jobs:
       - name: Clone mir4 source code
         env:
           REPO_URL: https://github.com/ioiotor/test
-          REPO_BRANCH: master
+          REPO_BRANCH: main
         run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
 
@@ -89,7 +89,7 @@ jobs:
           echo -e "$(nproc) thread build."
           make -j$(nproc) V=s
       - name : Upload artifact
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         with:
           name: OpenWrt firmware
           path: openwrt/bin
