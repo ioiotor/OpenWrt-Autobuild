@@ -14,7 +14,7 @@ on:
     types: [published]
   push:
     branches: 
-      - main
+      - master
   #     ↑↑↑ 改成你的分支名, 一般是master
   # schedule:
   #   - cron: 0 20 * * *
@@ -59,7 +59,7 @@ jobs:
       - name: Clone mir4-ss source code
         env:
           REPO_URL: https://github.com/ioiotor/mir4-openwrt
-          REPO_BRANCH: master
+          REPO_BRANCH: main
         run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
       - name: Update feeds
